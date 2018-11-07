@@ -17,16 +17,15 @@ CREATE DATABASE inventory
 ```
 
 Copy `application.properties` file from `resources` folder and change PostgreSQL settings as needed<br><br>
-<b>To run the application:<b>
+<b>To run the application:</b>
 `java -jar release/inventory-api-1.0.0.jar -Dconfig.location=/path/to/application.properties`
 
-<br>
 After application running for the first time, it will automatically create the tables.
 
 <h3>Using the API:</h3>
 
 - API to retrieve products:<br>
-GET http://localhost:8080/getProducts <br>
+GET http://localhost:8080/retrieveProducts <br>
 ```
 {
   "id": "(string) unique id of the event",
@@ -61,7 +60,7 @@ curl --request GET \
 ```
 
 - API to store products:<br>
-POST http://localhost:8080/api/userConnection/create
+POST http://localhost:8080/storeProducts
 ```
 {
   "id": "(string) unique id of the event",
@@ -100,6 +99,10 @@ curl --request POST \
   ]
 }'
 ```
+
+- API to check status:<br>
+GET http://localhost:8080/status
+
 
 <h3>Database (PostgreSQL 9.6) tables:</h3>
 - event<br>
